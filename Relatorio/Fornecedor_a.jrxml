@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1795ace4-2698-492e-9695-bdf8e651893b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="XD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     fornecedor.`for_nome` AS fornecedor_for_nome,
+     fornecedor.`for_descricao` AS fornecedor_for_descricao,
+     fornecedor.`for_cnpj` AS fornecedor_for_cnpj,
+     fornecedor.`for_email` AS fornecedor_for_email,
+     fornecedor.`for_telefone` AS fornecedor_for_telefone,
+     fornecedor.`for_site` AS fornecedor_for_site
+FROM
+     `fornecedor` fornecedor where fornecedor.`for_nome` like $P{XD};]]>
+	</queryString>
+	<field name="fornecedor_for_nome" class="java.lang.String"/>
+	<field name="fornecedor_for_descricao" class="java.lang.String"/>
+	<field name="fornecedor_for_cnpj" class="java.lang.String"/>
+	<field name="fornecedor_for_email" class="java.lang.String"/>
+	<field name="fornecedor_for_telefone" class="java.lang.String"/>
+	<field name="fornecedor_for_site" class="java.lang.String"/>
+	<group name="fornecedor_for_nome">
+		<groupExpression><![CDATA[$F{fornecedor_for_nome}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="2dcf8976-ca3d-4e44-a693-720fe20ff7e1"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="45" y="0" width="510" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="532d66ff-ca4d-4141-a9e5-cb546c240864"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fornecedor_for_nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="b542de8c-5455-4a0d-98a8-b63233511fcb"/>
+				</line>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="444" y="12" width="111" height="20" uuid="7663263d-12b6-4aae-9fc9-04ba233c6e15"/>
+					<textElement textAlignment="Right">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fornecedor_for_site}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="2c0470b1-9775-46bf-84a2-cb8f5a786338"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="66ef3229-a862-41e6-880f-57f76d71a474"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fornecedor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="a68c1de6-1145-4c91-a17f-595cbc512591"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Detelhes]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="dc10b86e-2867-4c57-ab42-a278f03a5551"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="131" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3b7f1af9-bc2c-4320-a1e3-d30f0d6c7f73"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descricão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="131" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4aa1da6f-1999-498d-ae9a-b3c3d06a6e8a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cnpj]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="242" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aaa30971-1df0-4513-9c53-764af927e395"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="353" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c4c438c1-9f2b-45d6-9a6b-3d88972b2077"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="464" y="0" width="91" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="92df7f15-498d-42d7-9398-9a9fe9e43599"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Site]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="555" height="1" uuid="a77b5b50-fafd-4040-8ddc-b493db29976c"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="111" height="20" uuid="c72a7c0d-ba03-47b3-8249-1b7eb93bbcfd"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fornecedor_for_descricao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="388" y="0" width="111" height="20" uuid="c8531a0e-1af1-4f76-970f-5a9ec68e755c"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fornecedor_for_telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="1" width="100" height="20" uuid="2c4181de-30ce-4c24-804e-fe9385d0583a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fornecedor_for_email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="131" y="1" width="111" height="20" uuid="c91a5f3e-084d-46c3-9dd7-0e13a1e367bd"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fornecedor_for_cnpj}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="44707ee2-da52-4230-9293-6776027e4a17"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b520446d-55b6-4b71-a561-33d60a064d3e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="216" height="13" uuid="b0c87538-01de-4982-b9bf-5075876e5d2e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

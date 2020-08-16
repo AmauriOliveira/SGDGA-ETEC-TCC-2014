@@ -1,0 +1,1 @@
+java -Xincgc -Xmx128M -jar Sistema_SGDGA.jar

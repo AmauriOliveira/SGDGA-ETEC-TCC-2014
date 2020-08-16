@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="974b3e44-342e-42d6-847a-69b098377ab6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1" uuid="e5ddd6ba-aded-402e-92b9-7529ee178529"/>
+	<subDataset name="New Dataset 1" uuid="33187d53-07bb-4445-964a-5e9122603567">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     items_nota.`itm_nota_fiscal` AS items_nota_itm_nota_fiscal,
+     items_nota.`itm_qtd` AS items_nota_itm_qtd,
+     items_nota.`itm_valor_und` AS items_nota_itm_valor_und,
+     items_nota.`itm_subtotal` AS items_nota_itm_subtotal,
+     produtos.`pro_nome` AS produtos_pro_nome
+FROM
+     `produtos` produtos INNER JOIN `items_nota` items_nota ON produtos.`pro_id` = items_nota.`itm_produto`]]>
+		</queryString>
+		<field name="items_nota_itm_nota_fiscal" class="java.lang.Integer"/>
+		<field name="items_nota_itm_qtd" class="java.lang.Integer"/>
+		<field name="items_nota_itm_valor_und" class="java.lang.Double"/>
+		<field name="items_nota_itm_subtotal" class="java.lang.Double"/>
+		<field name="produtos_pro_nome" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="XD" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Windows\\Documents\\NetBeansProjects\\Sistema SGDGA\\src\\br\\com\\etec\\sgdga\\Relatorio\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     nota.`nota_hora` AS nota_nota_hora,
+     nota.`nota_data` AS nota_nota_data,
+     nota.`nota_vlr_total` AS nota_nota_vlr_total,
+     nota.`nota_desconto` AS nota_nota_desconto,
+     nota.`nota_final` AS nota_nota_final,
+     cliente.`cli_nome` AS cliente_cli_nome,
+     nota.`nota_id` AS nota_nota_id
+FROM
+     `cliente` cliente INNER JOIN `nota` nota ON cliente.`cli_id` = nota.`nota_cliente`
+WHERE
+     nota.`nota_id` = $P{XD}]]>
+	</queryString>
+	<field name="nota_nota_hora" class="java.sql.Time"/>
+	<field name="nota_nota_data" class="java.sql.Date"/>
+	<field name="nota_nota_vlr_total" class="java.lang.Double"/>
+	<field name="nota_nota_desconto" class="java.lang.Double"/>
+	<field name="nota_nota_final" class="java.lang.Double"/>
+	<field name="cliente_cli_nome" class="java.lang.String"/>
+	<field name="nota_nota_id" class="java.lang.Integer"/>
+	<group name="nota_nota_id">
+		<groupExpression><![CDATA[$F{nota_nota_id}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="b5fa91b7-9d06-4577-92f8-79e3732df198"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[ID:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="e3ad3f44-407e-4581-a966-833d3b22a63b"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nota_nota_id}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="8e8c8a37-4ff4-478a-9ffd-894baf07267f"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="51">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-21" width="595" height="72" backcolor="#006699" uuid="6cbf7861-a6e0-4bcb-94b3-e9c346cc5237"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="fc0a78c4-20cf-43d3-86c6-ce151f858d31"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nota]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="a30089a8-f4c5-4276-8908-b4d25fa51bc7"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Sgdga]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="24e8e358-32a4-46d1-8726-0fafa89a7181"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="59" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a40a5be8-2ac8-41d3-a873-c471cc73ee6d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="59" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9f6a1b72-5593-4cfd-bfc5-3b43856dd702"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="151" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a2438ed5-de96-45ab-be5d-b97d90f467da"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="243" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="92b98bf1-d401-4a8e-8488-dff9cb796b2b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desconto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="335" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a2c4468e-55a8-4d35-a36e-e35f1a73001e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="427" y="0" width="128" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="69ef8a73-4b49-4570-bccb-2be737acfc9a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="152">
+			<textField isStretchWithOverflow="true" pattern="HH.mm">
+				<reportElement x="0" y="0" width="92" height="20" uuid="28e3dbef-0ef7-490f-9d63-9514123c6273"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nota_nota_hora}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+				<reportElement x="92" y="0" width="92" height="20" uuid="31fe8416-8640-40f8-978f-3cbbd5bd8ea3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nota_nota_data}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="184" y="0" width="92" height="20" uuid="21026dd9-58bc-4060-9d15-6f72dab8fff8"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nota_nota_vlr_total}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="92" height="20" uuid="13979b9b-5a46-4c45-9bec-2759524dda95"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nota_nota_desconto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="368" y="0" width="92" height="20" uuid="737e627f-2b8f-4f28-8f12-b672ecd06dc4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nota_nota_final}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="460" y="1" width="92" height="20" uuid="acfdf0fa-d8e3-4ef3-a70e-6ffef27e292e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_nome}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="552" height="1" uuid="12ca8c8f-0ce9-4ed7-93b1-9ab6b77f884d"/>
+			</line>
+			<subreport>
+				<reportElement x="3" y="24" width="549" height="128" uuid="9b36050e-9e71-48a3-aa45-fac848b14999"/>
+				<subreportParameter name="ZZ">
+					<subreportParameterExpression><![CDATA[$P{XD}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Sub.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="ee1740c6-3327-4644-bb5a-78f3b26fba7b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="7116090b-d2f3-461b-ae0a-4ead7f34e878"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="0fcd015e-c0b4-40b9-a11e-024c8cd7fbf1"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

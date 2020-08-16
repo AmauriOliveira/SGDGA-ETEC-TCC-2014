@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="32497a38-2a93-4177-9b95-2233986fc6c5">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="XD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`cli_nome` AS cliente_cli_nome,
+     cliente.`cli_sobrenome` AS cliente_cli_sobrenome,
+     cliente.`cli_rua` AS cliente_cli_rua,
+     cliente.`cli_numero` AS cliente_cli_numero,
+     cliente.`cli_bairro` AS cliente_cli_bairro,
+     cliente.`cli_cep` AS cliente_cli_cep,
+     cad_cidade.`cid_nome` AS cad_cidade_cid_nome,
+     cad_cidade.`cid_uf` AS cad_cidade_cid_uf
+FROM
+     `cad_cidade` cad_cidade INNER JOIN `cliente` cliente ON cad_cidade.`cid_id` = cliente.`cli_cidade` where cliente.`cli_nome` like $P{XD};]]>
+	</queryString>
+	<field name="cliente_cli_nome" class="java.lang.String"/>
+	<field name="cliente_cli_sobrenome" class="java.lang.String"/>
+	<field name="cliente_cli_rua" class="java.lang.String"/>
+	<field name="cliente_cli_numero" class="java.lang.String"/>
+	<field name="cliente_cli_bairro" class="java.lang.String"/>
+	<field name="cliente_cli_cep" class="java.lang.String"/>
+	<field name="cad_cidade_cid_nome" class="java.lang.String"/>
+	<field name="cad_cidade_cid_uf" class="java.lang.String"/>
+	<group name="cliente_cli_nome">
+		<groupExpression><![CDATA[$F{cliente_cli_nome}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="9f32bd6c-5fe1-4e9a-8e58-f243c6c26600"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="43" y="0" width="510" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="c0c45d45-b01a-4524-ac6b-77865e58e153"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cliente_cli_nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="6630dc36-b82c-4a2b-8ea0-acbfdb705212"/>
+				</line>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="436" y="0" width="79" height="20" uuid="5e0a6631-2fea-45e1-bea2-ea614f4bf459"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cad_cidade_cid_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="278" y="0" width="79" height="20" uuid="9229f380-7d76-4ce3-aa55-987737bd84e6"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cliente_cli_bairro}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="97a80660-9024-4ce0-88f3-3a68ffda1efd"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="4f03460a-85bf-4ed3-b4b2-1ba84dabbc9f"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Clientes]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="bdc8279c-f9cc-4c75-b5b0-c15812768260"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Endereço]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="a0470d95-3d30-42cb-93be-34c2b74fee2f"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="df34ddd2-6e84-422c-b6fe-bb444b05079a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sobrenome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="99" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0c123ed6-b811-4e9c-94df-a6bac80a6684"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="199" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c669c5be-a067-4575-9525-e9fb9d995eb0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="278" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="97d2e4ed-9ae0-4dd7-90e8-ca3a9ab11154"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bairro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="357" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e889969c-d54f-4945-96d6-683f276764ac"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="436" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9c187702-7830-46cd-92e8-8472af626036"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="515" y="0" width="38" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7c15a981-a85c-4c07-bf69-4f3fd428de3a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Uf]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="3e8aff29-ea50-429e-a90a-15ed6e43008a"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="79" height="20" uuid="892e45bc-c14f-4671-bf64-79b480fe04b8"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_sobrenome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="0" width="79" height="20" uuid="688328e9-5de0-4c23-9ff7-97ee02cb7010"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_rua}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="234" y="0" width="79" height="20" uuid="c717e1a3-3309-4cbe-99b9-58e0d2c0b85e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_numero}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="357" y="0" width="79" height="20" uuid="1a59d362-ee0a-47f4-a8c8-c03aa1541a30"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_cli_cep}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="515" y="0" width="38" height="20" uuid="8dea4014-30ad-4e6a-b0df-9a08800f8463"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cad_cidade_cid_uf}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="f434778d-618c-4770-8d3d-5c88be0d5798"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="e5dd6e98-d732-4dbc-93cc-8deb18511c8e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="199" height="13" uuid="29157657-2504-457b-b73b-85b7de5a02cc"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
