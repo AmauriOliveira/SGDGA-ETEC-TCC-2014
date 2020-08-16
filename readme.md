@@ -38,5 +38,10 @@ Feel free to check [issues page](https://github.com/AmauriOliveira/SGDGA-ETEC-TC
 
 ## :books: License
 
+Artist: Fatcow Web Hosting
+Iconset Homepage: http://www.fatcow.com/free-icons
+License: CC Attribution 4.0
+Commercial usage: Allowed (Backlink to http://www.fatcow.com/free-icons required)
+
 Copyright © 2020 Amauri Oliveira
 This project is [MIT](license) licensed.
